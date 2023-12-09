@@ -21,21 +21,12 @@ function Dashboard() {
         <div className="flex flex-wrap justify-between items-center lg:justify-center gap-4 lg:gap-10 px-4 lg:px-0 mb-8">
           <div className="max-w-xs lg:max-w-full">
             <img
-              className="w-40 h-40 object-cover rounded-full border-4 border-pink-600 p-2 mx-auto"
-              src={"https://cdn-icons-png.flaticon.com/128/3135/3135715.png"}
+              className="w-30 h-40 rounded-full border-4 p-2 mx-auto"
+              src={"https://cdn.7tv.app/emote/626b01b8a6cbd39e46aa4eeb/4x.avif"}
               alt="profile"
             />
           </div>
           <div className="max-w-md lg:max-w-xl">
-            <h1 className="text-center font-bold text-2xl mb-2 text-gray-800 dark:text-white">
-              Swayam Vij
-            </h1>
-            <div className="text-center mb-4 text-gray-600 dark:text-gray-300">
-              <span className="font-semibold">Job:</span> Berozgar
-            </div>
-            <div className="text-center text-gray-600 dark:text-gray-300">
-              <span className="font-semibold">Mail:</span> svrusty00@gmail.com
-            </div>
             <div className="text-center mt-2">
               <span className="font-semibold text-gray-600 dark:text-gray-300">
                 Total Blogs:

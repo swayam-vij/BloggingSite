@@ -115,11 +115,11 @@ export default function Nav() {
                     <Avatar
                       key={1}
                       src={
-                        "https://cdn-icons-png.flaticon.com/128/3135/3135715.png"
+                        "https://cdn.7tv.app/emote/626b01b8a6cbd39e46aa4eeb/4x.avif"
                       }
                       alt="avatar"
                       withBorder={true}
-                      className="p-0.5 text-red-500 w-10 h-10"
+                      className="p-0.5 text-red-500 w-10 h-10 overflow-visible"
                       style={{
                         border:
                           mode === "dark"
