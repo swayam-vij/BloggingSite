@@ -48,7 +48,7 @@ export default App;
 
 export const ProtectedRouteForAdmin = ({ children }) => {
   const admin = JSON.parse(localStorage.getItem("admin"));
-  if (admin?.user?.email === "admin@gmail.com") {
+  if (admin?.user?.email === import.meta.env.VITE_EMAIL) {
     return children;
   } else {
     return <Navigate to={"/adminlogin"} />;
