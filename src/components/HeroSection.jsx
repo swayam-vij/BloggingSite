@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { Typography } from "@material-tailwind/react";
 import myContext from "../context/myContext";
+import blogging from "../assets/blogging.png";
+import bloggingdark from "../assets/blogging-dark-theme.png";
 
 function HeroSection() {
   const context = useContext(myContext);

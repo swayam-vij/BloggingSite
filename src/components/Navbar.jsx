@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import myContext from "../context/myContext";
 import SearchDialog from "./SearchDialog";
 import ShareDialogBox from "./ShareDialog";
+import bloomblog from "../assets/bloomblog.gif";
 
 export default function Nav() {
   const [openNav, setOpenNav] = React.useState(false);
@@ -83,10 +84,7 @@ export default function Nav() {
               style={{ color: mode === "dark" ? "white" : "black" }}
             >
               {/* Logo Image  */}
-              <img
-                className=" w-10 h-10 "
-                src="https://i.ibb.co/Mhp3dyd/bloomblog.gif"
-              />
+              <img className=" w-10 h-10 " src={bloomblog} />
               {/* Logo Text  */}
               <span>Bloom Blog</span>
             </Typography>

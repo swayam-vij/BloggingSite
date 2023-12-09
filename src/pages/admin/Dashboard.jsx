@@ -14,251 +14,129 @@ function Dashboard() {
     localStorage.clear();
     navigate("/");
   };
+
   return (
     <Layout>
-      <div className="py-10">
-        <div className="flex flex-wrap justify-start items-center lg:justify-center gap-2 lg:gap-10 px-4 lg:px-0 mb-8">
-          <div className="left">
+      <div className="py-10 bg-gray-100 dark:bg-gray-800">
+        <div className="flex flex-wrap justify-between items-center lg:justify-center gap-4 lg:gap-10 px-4 lg:px-0 mb-8">
+          <div className="max-w-xs lg:max-w-full">
             <img
-              className=" w-40 h-40  object-cover rounded-full border-2 border-pink-600 p-1"
+              className="w-40 h-40 object-cover rounded-full border-4 border-pink-600 p-2 mx-auto"
               src={"https://cdn-icons-png.flaticon.com/128/3135/3135715.png"}
               alt="profile"
             />
           </div>
-          <div className="right">
-            <h1
-              className="text-center font-bold text-2xl mb-2"
-              style={{ color: mode === "dark" ? "white" : "black" }}
-            >
+          <div className="max-w-md lg:max-w-xl">
+            <h1 className="text-center font-bold text-2xl mb-2 text-gray-800 dark:text-white">
               Swayam Vij
             </h1>
-
-            <h2
-              style={{ color: mode === "dark" ? "white" : "black" }}
-              className="font-semibold"
-            >
-              <span>Job : </span>Berozgar
-            </h2>
-            <h2
-              style={{ color: mode === "dark" ? "white" : "black" }}
-              className="font-semibold"
-            >
-              <span>Mail : </span> svrusty00@gmail.com
-            </h2>
-            <h2
-              style={{ color: mode === "dark" ? "white" : "black" }}
-              className="font-semibold"
-            >
-              <span>Total Blogs : </span> {getAllBlog.length}
-            </h2>
-            <div className=" flex gap-2 mt-2">
+            <div className="text-center mb-4 text-gray-600 dark:text-gray-300">
+              <span className="font-semibold">Job:</span> Berozgar
+            </div>
+            <div className="text-center text-gray-600 dark:text-gray-300">
+              <span className="font-semibold">Mail:</span> svrusty00@gmail.com
+            </div>
+            <div className="text-center mt-2">
+              <span className="font-semibold text-gray-600 dark:text-gray-300">
+                Total Blogs:
+              </span>{" "}
+              {getAllBlog.length}
+            </div>
+            <div className="flex justify-center gap-4 mt-4">
               <Link to={"/createblog"}>
-                <div className=" mb-2">
-                  <Button
-                    style={{
-                      background:
-                        mode === "dark"
-                          ? "rgb(226, 232, 240)"
-                          : "rgb(30, 41, 59)",
-                      color: mode === "dark" ? "black" : "white",
-                    }}
-                    className="px-8 py-2"
-                  >
-                    Create Blog
-                  </Button>
-                </div>
-              </Link>
-              <div className="mb-2">
                 <Button
-                  onClick={logout}
                   style={{
-                    background:
-                      mode === "dark"
-                        ? "rgb(226, 232, 240)"
-                        : "rgb(30, 41, 59)",
-                    color: mode === "dark" ? "black" : "white",
+                    background: mode === "dark" ? "#4A5568" : "#4C51BF",
+                    color: mode === "dark" ? "white" : "white",
                   }}
                   className="px-8 py-2"
                 >
-                  Logout
+                  Create Blog
                 </Button>
-              </div>
+              </Link>
+              <Button
+                onClick={logout}
+                style={{
+                  background: mode === "dark" ? "#4A5568" : "#4C51BF",
+                  color: mode === "dark" ? "white" : "white",
+                }}
+                className="px-8 py-2"
+              >
+                Logout
+              </Button>
             </div>
           </div>
         </div>
 
-        {/* Line  */}
-        <hr
-          className={`border-2
-                 ${mode === "dark" ? "border-gray-300" : "border-gray-400"}`}
-        />
+        <hr className="border-b-2 border-gray-300 dark:border-gray-400" />
 
-        {/* Table  */}
-        <div className="">
-          <div className=" container mx-auto px-4 max-w-7xl my-5">
-            <div className="relative overflow-x-auto shadow-md sm:rounded-xl">
-              {/* table  */}
-              <table className="w-full border-2 border-white shadow-md text-sm text-left text-gray-500 dark:text-gray-400">
-                {/* thead  */}
-                <thead
-                  style={{
-                    background: mode === "dark" ? "white" : "rgb(30, 41, 59)",
-                  }}
-                  className="text-xs "
-                >
-                  <tr>
-                    <th
-                      style={{
-                        color: mode === "dark" ? "rgb(30, 41, 59)" : "white",
-                      }}
-                      scope="col"
-                      className="px-6 py-3"
-                    >
-                      S.No
-                    </th>
-                    <th
-                      style={{
-                        color: mode === "dark" ? "rgb(30, 41, 59)" : "white",
-                      }}
-                      scope="col"
-                      className="px-6 py-3"
-                    >
-                      Thumbnail
-                    </th>
-                    <th
-                      style={{
-                        color: mode === "dark" ? "rgb(30, 41, 59)" : "white",
-                      }}
-                      scope="col"
-                      className="px-6 py-3"
-                    >
-                      Title
-                    </th>
-                    <th
-                      style={{
-                        color: mode === "dark" ? "rgb(30, 41, 59)" : "white",
-                      }}
-                      scope="col"
-                      className="px-6 py-3"
-                    >
-                      Category
-                    </th>
-                    <th
-                      style={{
-                        color: mode === "dark" ? "rgb(30, 41, 59)" : "white",
-                      }}
-                      scope="col"
-                      className="px-6 py-3"
-                    >
-                      Date
-                    </th>
-                    <th
-                      style={{
-                        color: mode === "dark" ? "rgb(30, 41, 59)" : "white",
-                      }}
-                      scope="col"
-                      className="px-6 py-3"
-                    >
-                      Action
-                    </th>
-                  </tr>
-                </thead>
-
-                {/* tbody  */}
-                {getAllBlog.length > 0 ? (
-                  <>
-                    {getAllBlog.map((item, index) => {
-                      const { thumbnail, date, id } = item;
-                      console.log(item);
-                      return (
-                        <tbody>
-                          <tr
-                            className=" border-b-2"
-                            style={{
-                              background:
-                                mode === "dark" ? "rgb(30, 41, 59)" : "white",
-                            }}
+        <div className="container mx-auto px-4 max-w-7xl my-5">
+          <div className="overflow-x-auto shadow-md sm:rounded-xl bg-white dark:bg-gray-700">
+            <table className="w-full border-2 border-white shadow-md text-sm text-gray-500 dark:text-gray-400">
+              <thead
+                style={{
+                  background: mode === "dark" ? "#2D3748" : "#1A202C",
+                }}
+                className="text-xs text-white"
+              >
+                <tr>
+                  <th className="px-6 py-3 font-bold">S.No</th>
+                  <th className="px-6 py-3 font-bold">Thumbnail</th>
+                  <th className="px-6 py-3 font-bold">Title</th>
+                  <th className="px-6 py-3 font-bold">Category</th>
+                  <th className="px-6 py-3 font-bold">Date</th>
+                  <th className="px-6 py-3 font-bold">Action</th>
+                </tr>
+              </thead>
+              {getAllBlog.length > 0 ? (
+                <tbody>
+                  {getAllBlog.map((item, index) => {
+                    const { thumbnail, date, id } = item;
+                    return (
+                      <tr
+                        className="border-b-2"
+                        style={{
+                          background: mode === "dark" ? "#2D3748" : "white",
+                        }}
+                        key={id}
+                      >
+                        <td className="px-6 py-4 font-medium">{index + 1}</td>
+                        <td className="px-6 py-4 font-medium">
+                          <img
+                            className="w-16 rounded-lg"
+                            src={thumbnail}
+                            alt="thumbnail"
+                          />
+                        </td>
+                        <td className="px-6 py-4 font-medium">
+                          {item.blogs.title}
+                        </td>
+                        <td className="px-6 py-4 font-medium">
+                          {item.blogs.category}
+                        </td>
+                        <td className="px-6 py-4 font-medium">{date}</td>
+                        <td className="px-6 py-4">
+                          <button
+                            onClick={() => deleteBlogs(id)}
+                            className="px-4 py-1 rounded-lg text-white font-bold bg-red-500"
                           >
-                            {/* S.No   */}
-                            <td
-                              style={{
-                                color: mode === "dark" ? "white" : "black",
-                              }}
-                              className="px-6 py-4"
-                            >
-                              {index + 1}.
-                            </td>
-
-                            {/* Blog Thumbnail  */}
-                            <th
-                              style={{
-                                color: mode === "dark" ? "white" : "black",
-                              }}
-                              scope="row"
-                              className="px-6 py-4 font-medium "
-                            >
-                              {/* thumbnail  */}
-                              <img
-                                className="w-16 rounded-lg"
-                                src={thumbnail}
-                                alt="thumbnail"
-                              />
-                            </th>
-
-                            {/* Blog Title  */}
-                            <td
-                              style={{
-                                color: mode === "dark" ? "white" : "black",
-                              }}
-                              className="px-6 py-4"
-                            >
-                              {item.blogs.title}
-                            </td>
-
-                            {/* Blog Category  */}
-                            <td
-                              style={{
-                                color: mode === "dark" ? "white" : "black",
-                              }}
-                              className="px-6 py-4"
-                            >
-                              {item.blogs.category}
-                            </td>
-
-                            {/* Blog Date  */}
-                            <td
-                              style={{
-                                color: mode === "dark" ? "white" : "black",
-                              }}
-                              className="px-6 py-4"
-                            >
-                              {date}
-                            </td>
-
-                            {/* Delete Blog  */}
-                            <td
-                              onClick={() => deleteBlogs(id)}
-                              style={{
-                                color: mode === "dark" ? "white" : "black",
-                              }}
-                              className="px-6 py-4"
-                            >
-                              <button className=" px-4 py-1 rounded-lg text-white font-bold bg-red-500">
-                                Delete
-                              </button>
-                            </td>
-                          </tr>
-                        </tbody>
-                      );
-                    })}
-                  </>
-                ) : (
-                  <>
-                    <h1>Not Found</h1>
-                  </>
-                )}
-              </table>
-            </div>
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              ) : (
+                <tbody>
+                  <tr>
+                    <td colSpan="6" className="p-4 text-center">
+                      Not Found
+                    </td>
+                  </tr>
+                </tbody>
+              )}
+            </table>
           </div>
         </div>
       </div>

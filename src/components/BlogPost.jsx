@@ -2,6 +2,7 @@ import { Button } from "@material-tailwind/react";
 import React, { useContext } from "react";
 import myContext from "../context/myContext";
 import { useNavigate } from "react-router";
+// ... (previous imports)
 
 function BlogPostCard() {
   const context = useContext(myContext);
@@ -11,89 +12,44 @@ function BlogPostCard() {
 
   return (
     <div>
-      <section className="text-gray-600 body-font">
-        <div className="container px-5 py-10 mx-auto max-w-7xl ">
-          {/* Main Content  */}
-          <div className="flex flex-wrap justify-center -m-4 mb-5">
-            {/* Card 1  */}
+      <section
+        style={{
+          color: mode === "dark" ? "rgb(226, 232, 240)" : "rgb(30, 41, 59)",
+        }}
+        className="text-gray-600 body-font "
+      >
+        <div className="container mx-auto max-w-7xl ">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {getAllBlog.length > 0 ? (
-              <>
-                {getAllBlog.map((item, index) => {
-                  const { thumbnail, id, date } = item;
-                  console.log(item);
-                  return (
-                    <div className="p-4 md:w-1/3" key={index}>
-                      <div
-                        style={{
-                          background:
-                            mode === "dark" ? "rgb(30, 41, 59)" : "white",
-                          borderBottom:
-                            mode === "dark"
-                              ? " 4px solid rgb(226, 232, 240)"
-                              : " 4px solid rgb(30, 41, 59)",
-                        }}
-                        className={`h-full shadow-lg  hover:-translate-y-1 cursor-pointer hover:shadow-gray-400
-                        ${mode === "dark" ? "shadow-gray-700" : "shadow-xl"} 
-                        rounded-xl overflow-hidden`}
-                      >
-                        {/* Blog Thumbnail  */}
-                        <img
-                          onClick={() => navigate(`/bloginfo/${id}`)}
-                          className=" w-full"
-                          src={thumbnail}
-                          alt="blog"
-                        />
-
-                        {/* Top Items  */}
-                        <div className="p-6">
-                          {/* Blog Date  */}
-                          <h2
-                            className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"
-                            style={{
-                              color:
-                                mode === "dark"
-                                  ? "rgb(226, 232, 240)"
-                                  : " rgb(30, 41, 59)",
-                            }}
-                          >
-                            {date}
-                          </h2>
-
-                          {/* Blog Title  */}
-                          <h1
-                            className="title-font text-lg font-bold text-gray-900 mb-3"
-                            style={{
-                              color:
-                                mode === "dark"
-                                  ? "rgb(226, 232, 240)"
-                                  : " rgb(30, 41, 59)",
-                            }}
-                          >
-                            {item.blogs.title}
-                          </h1>
-
-                          {/* Blog Description  */}
-                          <p
-                            className="leading-relaxed mb-3"
-                            style={{
-                              color:
-                                mode === "dark"
-                                  ? "rgb(226, 232, 240)"
-                                  : " rgb(30, 41, 59)",
-                            }}
-                          >
-                            lol
-                          </p>
-                        </div>
-                      </div>
+              getAllBlog.map((item, index) => {
+                const { thumbnail, id, date } = item;
+                return (
+                  <div
+                    key={index}
+                    className="bg-white dark:bg-gray-800 shadow-lg rounded-xl overflow-hidden"
+                  >
+                    <img
+                      onClick={() => navigate(`/bloginfo/${id}`)}
+                      className="w-full h-48 object-cover cursor-pointer"
+                      src={thumbnail}
+                      alt="blog"
+                    />
+                    <div className="p-6">
+                      <p className="text-sm text-gray-400">{date}</p>
+                      <h1 className="text-xl font-bold text-gray-900 my-2">
+                        {item.blogs.title}
+                      </h1>
+                      <p className="text-gray-600 dark:text-gray-300">
+                        {item.blogs.description}
+                      </p>
                     </div>
-                  );
-                })}
-              </>
+                  </div>
+                );
+              })
             ) : (
-              <>
+              <div className="col-span-3">
                 <h1 className="text-xl font-bold">Not Found</h1>
-              </>
+              </div>
             )}
           </div>
 

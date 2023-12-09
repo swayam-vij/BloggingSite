@@ -135,7 +135,7 @@ function CreateBlog() {
         </div>
 
         <Editor
-          apiKey="9jo3lu73p1xbfqaw6jvgmsbrmy7qr907nqeafe1wbek6os9d"
+          apiKey="42emeyqeco9dqgjncopjrchzmbvqwbwip320j1h0hb9w2z9n"
           onEditorChange={(newValue, editor) => {
             setBlogs({ ...blogs, content: newValue });
             settext(editor.getContent({ format: "text" }));
@@ -145,7 +145,9 @@ function CreateBlog() {
           }}
           init={{
             plugins:
-              "a11ychecker advcode advlist advtable anchor autocorrect autolink autoresize autosave casechange charmap checklist code codesample directionality editimage emoticons export footnotes formatpainter fullscreen help image importcss inlinecss insertdatetime link linkchecker lists media mediaembed mentions mergetags nonbreaking pagebreak pageembed permanentpen powerpaste preview quickbars save searchreplace table tableofcontents template  tinydrive tinymcespellchecker typography visualblocks visualchars wordcount",
+              "anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount",
+            toolbar:
+              "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat",
           }}
         />
 

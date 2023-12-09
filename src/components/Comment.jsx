@@ -1,6 +1,7 @@
 import { Button } from "@material-tailwind/react";
 import React, { useContext } from "react";
 import myContext from "../context/myContext";
+// ... (previous imports)
 
 function Comment({
   addComment,
@@ -15,17 +16,24 @@ function Comment({
 
   console.log(allComment);
   return (
-    <section>
+    <section style={{ maxWidth: "600px", margin: "auto", padding: "20px" }}>
       <div>
         <div>
-          <h2 className="text-lg lg:text-2xl font-bold">Make Comment</h2>
+          <h2 style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
+            Make Comment
+          </h2>
         </div>
         {/* Comment Form  */}
-        <form>
+        <form style={{ marginTop: "1rem" }}>
           {/* Full Name Input  */}
-          <div>
+          <div style={{ marginBottom: "1rem" }}>
             <input
               type="text"
+              style={{
+                border: "1px solid #ccc",
+                padding: "0.5rem",
+                width: "100%",
+              }}
               placeholder="Enter Full Name"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
@@ -33,7 +41,7 @@ function Comment({
           </div>
 
           {/* Text Area  */}
-          <div>
+          <div style={{ marginBottom: "1rem" }}>
             <label htmlFor="comment" className="sr-only">
               Your comment
             </label>
@@ -43,30 +51,40 @@ function Comment({
               value={commentText}
               onChange={(e) => setcommentText(e.target.value)}
               placeholder="Write a comment..."
+              style={{
+                border: "1px solid #ccc",
+                padding: "0.5rem",
+                width: "100%",
+              }}
               required
               defaultValue={""}
             />
           </div>
           {/* Button  */}
           <div>
-            <Button onClick={addComment}>Post comment</Button>
+            <Button
+              style={{ backgroundColor: "indigo", color: "white" }}
+              onClick={addComment}
+            >
+              Post comment
+            </Button>
           </div>
         </form>
 
         {/* Bottom Item  */}
-        <article>
+        <article style={{ marginTop: "1rem" }}>
           {allComment.map((item, index) => {
             const { fullName, date, commentText } = item;
             return (
-              <>
-                <footer>
+              <div key={index} style={{ marginBottom: "1rem" }}>
+                <footer style={{ fontSize: "0.875rem", color: "#888" }}>
                   <div>
-                    <p>{fullName}</p>
+                    <p style={{ fontWeight: "bold" }}>{fullName}</p>
                     <p>{date}</p>
                   </div>
                 </footer>
                 <p>{commentText}</p>
-              </>
+              </div>
             );
           })}
         </article>
