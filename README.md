@@ -1,8 +1,33 @@
-# React + Vite
+# Blogging Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to BloomBlog, a dynamic blogging platform built with React! Immerse yourself in a modern and interactive space where you can explore engaging blog content. BloomBlog is designed to provide an enjoyable reading experience while offering a seamless platform for contributors.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Light/dark mode toggle
+- Users can read blogs written and posted by me.
+- Users can comment under my blog post and leave their reviews.
+- Admin(me) has a dashboard where I can create new blogs or delete exiting ones.
+  -You can search or share the blog you want see.
+
+## Run Locally
+
+Clone the project
+
+Go to the project directory
+
+```bash
+  cd blogging
+```
+
+Install dependencies
+
+```bash
+  npm i
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
