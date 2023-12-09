@@ -135,7 +135,7 @@ function CreateBlog() {
         </div>
 
         <Editor
-          apiKey="42emeyqeco9dqgjncopjrchzmbvqwbwip320j1h0hb9w2z9n"
+          apiKey={import.meta.env.VITE_Tiny}
           onEditorChange={(newValue, editor) => {
             setBlogs({ ...blogs, content: newValue });
             settext(editor.getContent({ format: "text" }));
